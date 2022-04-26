@@ -1,0 +1,2 @@
+# Auto-Scout-Project
+Car Price Prediction EDA Project. This is the capstone project of ***Data Analytics*** Module. **Auto Scout** data used for this project, were scraped from the on-line car trading company, Auto Scout, in 2019, contains many features of 9 different car models. In this project, you will have the opportunity to apply many commonly used algorithms for Data Cleaning and Exploratory Data Analysis by using many Python libraries such as Numpy, Pandas, Matplotlib, Seaborn, Scipy.
