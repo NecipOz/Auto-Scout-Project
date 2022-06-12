@@ -15,7 +15,7 @@ model=st.sidebar.selectbox("Select model of your car", ('A1', 'A2', 'A3','Astra'
 
 year=st.sidebar.selectbox("Select year of car:",(2016,2017,2018,2019))
 
-new_used=st.sidebar.selectbox("Select situation of your car", ('A1', 'A2', 'A3','Astra','Clio','Corsa','Espace','Insignia'))
+new_used=st.sidebar.selectbox("Select situation of your car", ("Used", "New", "Pre-registered","Employee's car","Demonstration"))
 
 gearing_type=st.sidebar.radio('Select gear type',('Automatic','Manual','Semi-automatic'))
 
@@ -41,12 +41,16 @@ conf_car = {"make_model": model,
 
 df = pd.DataFrame.from_dict([conf_car])
 
-enc=pickle.load(open("ordinal_encoder","rb"))
+enc=pickle.load(open("ord_encoder","rb"))
 
-df["make_model","gearing_type","new_used"] = enc.fit_transform(df["make_model","gearing_type","new_used"])
+df.loc[:,["make_model","gearing_type","new_used"]]
+
+df.loc[:,["make_model","gearing_type","new_used"]] = enc.fit_transform(df.loc[:,["make_model","gearing_type","new_used"]])
 
 st.header("The configuration of your car:")
 st.table(df)
+
+df
 
 model=pickle.load(open("auto_scout","rb"))
 
